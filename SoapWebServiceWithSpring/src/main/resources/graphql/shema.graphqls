@@ -1,0 +1,13 @@
+type Query {
+    getAllComptes:[CompteDtoResponse],
+    getCompte(code:Int): CompteDtoResponse,
+
+}
+type Mutation {
+    convert(montant: Float): Float
+}
+
+type CompteDtoResponse {
+    code:Int
+    montant:Float
+}

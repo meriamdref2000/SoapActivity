@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Published by XML-WS Runtime (https://github.com/eclipse-ee4j/metro-jax-ws). Runtime's version is XML-WS Runtime 4.0.0 git-revision#129f787.-->
+<xsd:schema targetNamespace="http://service.web.ws.jax.com/" xmlns:ns0="http://service.web.ws.jax.com/"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:complexType name="compte">
+        <xsd:sequence>
+            <xsd:element name="code" type="xsd:long" minOccurs="0"/>
+            <xsd:element name="montant" type="xsd:double"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="compteList"/>
+    <xsd:complexType name="compteListResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:compte" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="Convert">
+        <xsd:sequence>
+            <xsd:element name="montant" type="xsd:double"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ConvertResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:double"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="getCompte">
+        <xsd:sequence>
+            <xsd:element name="code" type="xsd:long" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="getCompteResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:compte" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="compte" type="ns0:compte"/>
+    <xsd:element name="compteList" type="ns0:compteList"/>
+    <xsd:element name="compteListResponse" type="ns0:compteListResponse"/>
+    <xsd:element name="Convert" type="ns0:Convert"/>
+    <xsd:element name="ConvertResponse" type="ns0:ConvertResponse"/>
+    <xsd:element name="getCompte" type="ns0:getCompte"/>
+    <xsd:element name="getCompteResponse" type="ns0:getCompteResponse"/>
+</xsd:schema>

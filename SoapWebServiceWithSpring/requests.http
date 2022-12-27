@@ -1,0 +1,72 @@
+###
+GET http://localhost:8080/api/comptes
+
+###
+GET http://localhost:8080/api/comptes/1
+
+###
+POST http://localhost:8080/api/comptes/convert
+Content-Type: application/json
+
+{
+  "montant": 126
+}
+
+###
+GRAPHQL http://localhost:8080/graphql
+
+query {
+   getAllComptes {code, montant}
+}
+
+###
+GRAPHQL http://localhost:8080/graphql
+
+query {
+   getCompte(code: 1) {code, montant}
+}
+
+###
+GRAPHQL http://localhost:8080/graphql
+
+mutation {
+   convert(montant: 126)
+}
+
+###
+POST http://localhost:8080/ws
+Content-Type: text/xml
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.web.ws.jax.com/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <ser:compteList/>
+    </soapenv:Body>
+</soapenv:Envelope>
+
+###
+POST http://localhost:8080/ws
+Content-Type: text/xml
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.web.ws.jax.com/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <ser:Convert>
+            <montant>126</montant>
+        </ser:Convert>
+    </soapenv:Body>
+</soapenv:Envelope>
+
+###
+POST http://localhost:8080/ws
+Content-Type: text/xml
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:ser="http://service.web.ws.jax.com/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <ser:getCompte>
+            <code>1</code>
+        </ser:getCompte>
+    </soapenv:Body>
+</soapenv:Envelope>
